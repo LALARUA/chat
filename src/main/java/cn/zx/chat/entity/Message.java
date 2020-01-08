@@ -1,4 +1,4 @@
-package cn.zx.chat.chat;
+package cn.zx.chat.entity;
 
 import com.alibaba.fastjson.JSON;
 

@@ -275,11 +275,13 @@
 
         var username = [[${username}]]
 
+		var hostAddress = [[${hostAddress}]]
+
         function getWebSocket() {
             /**
              * WebSocket客户端 PS：URL开头表示WebSocket协议 中间是域名端口 结尾是服务端映射地址
              */
-            var webSocket = new WebSocket('ws://localhost:8080/chatServer/'+username);
+            var webSocket = new WebSocket('ws://172.18.60.82:8080/chatServer/'+username);
             /**
              * 当服务端打开连接
              */
@@ -309,6 +311,7 @@
 					"\t\t\t\t\t\t\t\t\t\t  </div>\n" +
 					"\t\t\t\t\t\t\t\t\t    </li>")
 
+				scrollToBottom();
                 // $('.chat-num').text(message.onlineCount);
                 // //防止刷屏
                 // var $cards = $messageContainer.children('.mdui-card:visible').toArray();
@@ -367,11 +370,13 @@
                     "\t\t\t\t\t\t\t\t\t    </li>")
                 $message.val(null);
             }
-            var scrollHeight = $('#chatWindows').prop("scrollHeight");
-
-            $('#chatWindows').animate({scrollTop:scrollHeight}, 400);
+			scrollToBottom();
 
         }
+        function scrollToBottom() {
+			var scrollHeight = $('#chatWindows').prop("scrollHeight");
+			$('#chatWindows').animate({scrollTop:scrollHeight}, 400);
+		}
         /**
          * 清屏
          */
@@ -389,7 +394,7 @@
             iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
             return iDays
         };
-        alert(dateDifference("2019-10-04","2019-10-05"))
+
         function dateFormat(fmt, date) {
             var ret;
             var opt = {

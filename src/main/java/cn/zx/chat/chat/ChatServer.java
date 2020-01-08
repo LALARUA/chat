@@ -1,8 +1,8 @@
 package cn.zx.chat.chat;
 
+import cn.zx.chat.entity.Message;
 import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
